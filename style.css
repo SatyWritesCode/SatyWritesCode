@@ -1,26 +1,82 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    text-align: center;
 }
 
+/* Header */
 header {
     background: #333;
     color: white;
-    text-align: center;
-    padding: 20px;
+    padding: 30px 10px;
 }
 
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.resume-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.resume-btn:hover {
+    background: #0056b3;
+}
+
+/* Sections */
 section {
-    padding: 20px;
-    margin: 20px;
+    padding: 40px;
+    margin: 20px auto;
+    width: 80%;
     background: white;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Experience & Projects */
+.job, .project {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.job h3, .project h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #007BFF;
+}
+
+.job span {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Contact */
+section#contact a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+section#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
 footer {
     text-align: center;
     padding: 10px;
