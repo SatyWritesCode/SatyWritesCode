@@ -3,92 +3,266 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Satyarth Vaidya - Resume</title>
+    <title>Satyarth Vaidya - FullstackSoftware Engineer</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+      <em>Dark Mode</em>
+    </div>
+
     <header>
-      <h1>Satyarth Vaidya</h1>
-      <p>Software Engineer | Passionate about Learning & Building</p>
-      <a href="Software_Fall_2024_Resume.pdf" class="resume-btn" download
-        >Download Resume</a
-      >
+      <div class="header-content">
+        <h1>Satyarth Vaidya</h1>
+        <h2>Fullstack Software Engineer</h2>
+        <div class="contact-info">
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:satyarthvaidya@gmail.com"
+              >satyarthvaidya@gmail.com</a
+            >
+          </p>
+          <p><i class="fas fa-phone"></i> +1 (574) 329 0284</p>
+        </div>
+        <a
+          href="assets/resume.pdf"
+          class="resume-btn"
+          download="Satyarth_Vaidya_Resume.pdf"
+        >
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
     </header>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a software engineer who realized there's so much to learn, and I'm
-        here to do exactly that! I love working with backend technologies,
-        system design, and solving complex problems.
-      </p>
-    </section>
+    <nav>
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="job">
-        <h3>Software Engineer | Moderna</h3>
-        <p>
-          Developed a sequence toxin detection system ensuring safety
-          compliance.
-        </p>
-        <span>Aug 2023 - Present</span>
-      </div>
-      <div class="job">
-        <h3>Software Engineer | Zoom Video Communications</h3>
-        <p>
-          Owned Conversation & Clip sharing functionality, driving enterprise
-          adoption.
-        </p>
-        <span>Aug 2021 - Jun 2023</span>
-      </div>
-      <div class="job">
-        <h3>Software Engineer | Pickle Poll</h3>
-        <p>
-          Migrated iOS-only app to the web, boosting new user growth by 40%.
-        </p>
-        <span>June 2021 - Aug 2021</span>
-      </div>
-    </section>
+    <main>
+      <section id="experience">
+        <h2><i class="fas fa-briefcase"></i> Experience</h2>
+        <div class="timeline">
+          <div class="job">
+            <h3>Software Development Engineer Fullstack</h3>
+            <h4>Moderna | mRNA Squad</h4>
+            <p class="date">Aug 2023 - Present</p>
+            <ul>
+              <li>
+                Developed a sequence toxin detection system implementing a
+                robust API to screen incoming sequence orders against an
+                internal BLAST db
+              </li>
+            </ul>
+            <div class="tech-stack">
+              <span>Angular</span>
+              <span>RxJS</span>
+              <span>TypeScript</span>
+              <span>NestJS</span>
+            </div>
+          </div>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Lexical Diversity in Language Models</h3>
-        <p>
-          Proposed methods to improve diversity in AI-generated text, accepted
-          at ACL 2020.
-        </p>
-      </div>
-      <div class="project">
-        <h3>Pentagram - Social Media App</h3>
-        <p>
-          Built an Instagram-like photo-sharing app with full user
-          functionality.
-        </p>
-      </div>
-    </section>
+          <div class="job">
+            <h3>Software Engineer Fullstack</h3>
+            <h4>Zoom Video Communications | ZoomIQ</h4>
+            <p class="date">Aug 2021 - Jun 2023</p>
+            <ul>
+              <li>
+                Owner of Conversation and Clip sharing functionality, leading to
+                $3M revenue increase
+              </li>
+              <li>Led development of "Teams" feature adopted by 260K+ DAUs</li>
+              <li>
+                Developed "Agenda covered feature" with real-time web socket
+                connection
+              </li>
+              <li>
+                Revamped deals page with visualization charts, increasing
+                engagement by 7%
+              </li>
+              <li>
+                First software engineer in ZoomIQ US team, increased test
+                efficiency by 16%
+              </li>
+            </ul>
+            <div class="tech-stack">
+              <span>Vue3</span>
+              <span>Python</span>
+              <span>JavaScript</span>
+              <span>CSS</span>
+              <span>HTML</span>
+            </div>
+          </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Email:
-        <a href="mailto:satyarthvaidya@gmail.com">satyarthvaidya@gmail.com</a>
-      </p>
-      <p>
-        GitHub:
-        <a href="https://github.com/SatyWritesCode"
-          >github.com/SatyWritesCode</a
-        >
-      </p>
-      <p>
-        LinkedIn:
-        <a href="https://linkedin.com/in/satyarth">linkedin.com/in/satyarth</a>
-      </p>
-    </section>
+          <div class="job">
+            <h3>Software Development Engineer Fullstack</h3>
+            <h4>Pickle Poll</h4>
+            <p class="date">June 2021 - Aug 2021</p>
+            <ul>
+              <li>Migrated iOS app to web using Webpack and Babel Jest</li>
+              <li>Led development of poll voting and results feature</li>
+              <li>Achieved 40% growth in new users</li>
+            </ul>
+            <div class="tech-stack">
+              <span>ReactJS</span>
+              <span>MySQL</span>
+              <span>NodeJS</span>
+              <span>Bootstrap</span>
+              <span>Webpack</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="education-item">
+          <h3>University of Pennsylvania</h3>
+          <p class="degree">Masters: Computer and Information Science</p>
+          <p class="date">GPA: 3.3/4</p>
+          <p class="date">June 2021</p>
+        </div>
+        <div class="education-item">
+          <h3>BITS Pilani, India</h3>
+          <p class="degree">
+            Bachelor of Technology (with Honors) in Computer Science
+          </p>
+          <p class="date">GPA: 8.84/10</p>
+          <p class="date">May 2019</p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2><i class="fas fa-code"></i> Technical Skills</h2>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Frontend</h3>
+            <div class="skill-tags">
+              <span>Angular</span>
+              <span>RxJS</span>
+              <span>TypeScript</span>
+              <span>Vue3</span>
+              <span>ReactJS</span>
+              <span>HTML/CSS</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Backend</h3>
+            <div class="skill-tags">
+              <span>NestJS</span>
+              <span>NodeJS</span>
+              <span>Python</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Databases & Cloud</h3>
+            <div class="skill-tags">
+              <span>MySQL</span>
+              <span>AWS</span>
+              <span>Elastic Beanstalk</span>
+              <span>S3</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Tools & Others</h3>
+            <div class="skill-tags">
+              <span>Webpack</span>
+              <span>Bootstrap</span>
+              <span>Git</span>
+              <span>CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2><i class="fas fa-project-diagram"></i> Academic Projects</h2>
+        <div class="project">
+          <h3>Increasing Lexical Diversity in Plug & Play Language Models</h3>
+          <p class="date">Jan 2020 - May 2020</p>
+          <ul>
+            <li>
+              Accepted as an extended abstract in the Workshop on Neural
+              Generation and Translation at ACL 2020
+            </li>
+            <li>
+              Demonstrated bias in GPT-2 models and proposed 3 methods to
+              increase generation of less frequent words
+            </li>
+          </ul>
+          <div class="tech-stack">
+            <span>Python</span>
+            <span>PyTorch</span>
+            <span>HuggingFace</span>
+            <span>Simple transformers</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3>Pentagram - Capstone Project</h3>
+          <p class="date">Aug 2019 - Dec 2019</p>
+          <ul>
+            <li>Built an Instagram-like photo sharing social networking app</li>
+            <li>
+              Implemented full user functionality including upload, like,
+              comment features
+            </li>
+            <li>
+              Developed complete Frontend, Backend, and APIs with documentation
+            </li>
+          </ul>
+          <div class="tech-stack">
+            <span>ReactJS</span>
+            <span>NodeJS</span>
+            <span>SQL</span>
+            <span>AWS S3</span>
+            <span>Heroku</span>
+            <span>Okta</span>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      <p>© 2025 Satyarth Vaidya. All rights reserved.</p>
+      <p>© 2024 Satyarth Vaidya. All rights reserved.</p>
     </footer>
+
+    <script>
+      const toggleSwitch = document.querySelector(
+        '.theme-switch input[type="checkbox"]'
+      );
+      const currentTheme = localStorage.getItem("theme");
+
+      if (currentTheme) {
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        if (currentTheme === "dark") {
+          toggleSwitch.checked = true;
+        }
+      }
+
+      function switchTheme(e) {
+        if (e.target.checked) {
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      toggleSwitch.addEventListener("change", switchTheme, false);
+    </script>
   </body>
 </html>
