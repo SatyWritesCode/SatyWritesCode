@@ -89,7 +89,7 @@
             <div class="job-content">
               <ul>
                 <li>
-                  Owned and delivered the “Custom Views” system for the Order
+                  Owned and delivered the "Custom Views" system for the Order
                   Details page, architecting and building it from design docs
                   and data modeling to backend APIs and frontend integration.
                   Adopted by 1,000+ DAUs, it enabled customizable,
@@ -373,7 +373,12 @@
       );
       const currentTheme = localStorage.getItem("theme");
 
-      if (currentTheme) {
+      // Set dark theme as default if no theme is stored
+      if (!currentTheme) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        toggleSwitch.checked = true;
+      } else {
         document.documentElement.setAttribute("data-theme", currentTheme);
         if (currentTheme === "dark") {
           toggleSwitch.checked = true;
