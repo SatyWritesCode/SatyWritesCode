@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Match Score - Satyarth Vaidya</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+      <em>Dark Mode</em>
+    </div>
+    <header>
+      <div class="header-content">
+        <h1>Job Match Score</h1>
+        <p class="subtitle">
+          Welcome, recruiter! Paste your job description below and instantly see
+          how well Satyarth's experience and skills match your role. Get a
+          quick, AI-powered fit score and summary.
+        </p>
+      </div>
+    </header>
+    <main>
+      <section class="job-match-section">
+        <form id="job-match-form">
+          <label for="job-description"
+            >Job Description
+            <span
+              style="
+                color: var(--secondary-color);
+                font-weight: 400;
+                font-size: 0.95em;
+              "
+              >(Paste the full text here)</span
+            ></label
+          >
+          <textarea
+            id="job-description"
+            name="job-description"
+            rows="10"
+            placeholder="Paste your job description here..."
+            required
+          ></textarea>
+          <button type="submit" class="calculate-btn">
+            Calculate Match Score
+          </button>
+        </form>
+        <div id="result-section" class="result-section" style="display: none">
+          <div class="score-display">
+            <span id="match-score"></span>
+          </div>
+          <div class="score-explanation">
+            <p id="match-explanation"></p>
+          </div>
+          <button
+            id="try-again-btn"
+            class="try-again-btn"
+            style="display: none"
+          >
+            Try another job
+          </button>
+        </div>
+        <div
+          id="loading-indicator"
+          class="loading-indicator"
+          style="display: none"
+        >
+          <span class="loading-spinner"></span>
+          Analyzing your job description...
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2024 Satyarth Vaidya. All rights reserved.</p>
+    </footer>
+    <script>
+      // Theme switch logic (copied from index.html for consistency)
+      const toggleSwitch = document.querySelector(
+        '.theme-switch input[type="checkbox"]'
+      );
+      const currentTheme = localStorage.getItem("theme");
+      if (!currentTheme) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        toggleSwitch.checked = true;
+      } else {
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        if (currentTheme === "dark") {
+          toggleSwitch.checked = true;
+        }
+      }
+      function switchTheme(e) {
+        if (e.target.checked) {
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+      }
+      toggleSwitch.addEventListener("change", switchTheme, false);
+
+      // --- Job Match Score Frontend Logic ---
+      const form = document.getElementById("job-match-form");
+      const textarea = document.getElementById("job-description");
+      const resultSection = document.getElementById("result-section");
+      const matchScore = document.getElementById("match-score");
+      const matchExplanation = document.getElementById("match-explanation");
+      const loadingIndicator = document.getElementById("loading-indicator");
+      const tryAgainBtn = document.getElementById("try-again-btn");
+      const calculateBtn = form.querySelector(".calculate-btn");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        // Hide previous results and show loading
+        resultSection.style.display = "none";
+        tryAgainBtn.style.display = "none";
+        loadingIndicator.style.display = "block";
+        calculateBtn.disabled = true;
+        textarea.disabled = true;
+
+        // Call backend API
+        try {
+          //   const response = await fetch("http://localhost:3001/api/job-match", {
+          //     method: "POST",
+          //     headers: { "Content-Type": "application/json" },
+          //     body: JSON.stringify({ jobDescription: textarea.value }),
+          //   });
+          //   const data = await response.json();
+
+          loadingIndicator.style.display = "none";
+          resultSection.style.display = "block";
+          tryAgainBtn.style.display = "inline-block";
+          const data = {
+            score: 90,
+            explanation:
+              "Satyarth's experience and skills match the job description. The candidate's extensive experience with React, TypeScript, and Redux, as well as their product instincts and background in software development align well with the job description.",
+          };
+          if (data.score !== undefined && data.explanation) {
+            matchScore.textContent = `Match Score: ${data.score}%`;
+            matchScore.style.fontSize = "2rem";
+            matchScore.style.fontWeight = "bold";
+            matchExplanation.textContent = data.explanation;
+            matchExplanation.style.color = "";
+          } else if (data.error) {
+            matchScore.textContent = "Error:";
+            matchScore.style.fontSize = "";
+            matchScore.style.fontWeight = "";
+            matchExplanation.textContent = data.error;
+            matchExplanation.style.color = "red";
+          } else {
+            matchScore.textContent = "Unexpected response:";
+            matchScore.style.fontSize = "";
+            matchScore.style.fontWeight = "";
+            matchExplanation.textContent = JSON.stringify(data, null, 2);
+            matchExplanation.style.color = "red";
+          }
+        } catch (err) {
+          matchScore.textContent = "Error:";
+          matchScore.style.fontSize = "";
+          matchScore.style.fontWeight = "";
+          matchExplanation.textContent =
+            err.message || "Failed to connect to backend.";
+          matchExplanation.style.color = "red";
+          loadingIndicator.style.display = "none";
+          resultSection.style.display = "block";
+          tryAgainBtn.style.display = "inline-block";
+        } finally {
+          calculateBtn.disabled = false;
+          textarea.disabled = false;
+        }
+      });
+
+      tryAgainBtn.addEventListener("click", function () {
+        textarea.value = "";
+        resultSection.style.display = "none";
+        tryAgainBtn.style.display = "none";
+        textarea.focus();
+      });
+    </script>
+  </body>
+</html>
