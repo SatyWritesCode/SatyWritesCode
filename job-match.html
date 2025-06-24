@@ -129,21 +129,19 @@
 
         // Call backend API
         try {
-          //   const response = await fetch("http://localhost:3001/api/job-match", {
-          //     method: "POST",
-          //     headers: { "Content-Type": "application/json" },
-          //     body: JSON.stringify({ jobDescription: textarea.value }),
-          //   });
-          //   const data = await response.json();
+          const response = await fetch(
+            "https://job-match-backend-hwvs.onrender.com/api/job-match",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ jobDescription: textarea.value }),
+            }
+          );
+          const data = await response.json();
 
           loadingIndicator.style.display = "none";
           resultSection.style.display = "block";
           tryAgainBtn.style.display = "inline-block";
-          const data = {
-            score: 90,
-            explanation:
-              "Satyarth's experience and skills match the job description. The candidate's extensive experience with React, TypeScript, and Redux, as well as their product instincts and background in software development align well with the job description.",
-          };
           if (data.score !== undefined && data.explanation) {
             matchScore.textContent = `Match Score: ${data.score}%`;
             matchScore.style.fontSize = "2rem";
