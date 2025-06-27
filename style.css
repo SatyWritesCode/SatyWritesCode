@@ -161,10 +161,18 @@ header h2 {
 }
 
 .contact-info {
-  margin: 1.5rem 0;
-  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  padding: 1.5rem 0;
+  background: linear-gradient(135deg, var(--header-bg) 0%, #1a237e 100%);
+  color: var(--header-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* CONTACT ICONS MATCH HEADER */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -174,23 +182,49 @@ header h2 {
 }
 
 .social-icons a {
-  color: var(--header-text);
-  font-size: 1.5rem;
-  transition: var(--transition);
-  padding: 0.8rem;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--header-bg); /* Always matches header bg */
+  color: var(--header-text); /* Always matches header text */
+  transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 0.18rem;
+  border: 2px solid transparent;
+  position: relative;
+  z-index: 1;
 }
 
-.social-icons a:hover {
-  transform: translateY(-3px) scale(1.1);
-  color: var(--primary-color);
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.social-icons a:hover,
+.social-icons a:focus {
+  background: var(--primary-color); /* Accent on hover/focus */
+  color: #fff;
+  border: 2px solid var(--primary-color);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.13);
+  outline: none;
+}
+
+.social-icons a:focus-visible {
+  outline: 2px dashed var(--primary-color);
+  outline-offset: 2px;
+}
+
+[data-theme="dark"] .social-icons a {
+  background: var(--header-bg); /* Still matches header in dark */
+  color: var(--header-text); /* White or contrast */
+  border: 2px solid transparent;
+}
+
+[data-theme="dark"] .social-icons a:hover,
+[data-theme="dark"] .social-icons a:focus {
+  background: var(--primary-color);
+  color: #fff;
+  border: 2px solid var(--secondary-color);
 }
 
 .contact-info p {
@@ -206,9 +240,21 @@ header h2 {
   text-decoration: underline;
 }
 
+/* Resume Button Centering */
+.resume-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0 0 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  animation: fadeInUp 0.8s ease-out 0.8s backwards;
+}
+
 .resume-btn {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
   background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
   color: white;
   text-decoration: none;
@@ -217,7 +263,11 @@ header h2 {
   font-weight: 500;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-  animation: fadeInUp 0.8s ease-out 0.8s backwards;
+  padding: 0.8rem 1.8rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 }
 
 .resume-btn:hover {
@@ -687,7 +737,8 @@ footer {
 
   .social-icons a {
     font-size: 1.3rem;
-    padding: 0.6rem;
+    width: 38px;
+    height: 38px;
   }
 }
 
